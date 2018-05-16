@@ -59,14 +59,14 @@ public class IndexController {
 			}
 
 		}
-		return "/admin/login";
+		return "admin/login";
 	}
 
 	@RequestMapping(value = "/admin/allUser", method = RequestMethod.GET)
 	public String showListUser(Model model) {
 		List<User> list = userService.findAll();
 		model.addAttribute("listUser", list);
-		return "/admin/user";
+		return "admin/user";
 	}
 
 	// login-success
@@ -100,7 +100,7 @@ public class IndexController {
 			model.addAttribute(pageSizes, define.getPageSize());
 			model.addAttribute("userLogin", new User());
 		}
-		return "/admin/book";
+		return "admin/book";
 	}
 
 	@RequestMapping(value = "/detailBook/{idBook}", method = RequestMethod.GET)
@@ -132,7 +132,7 @@ public class IndexController {
 		model.addAttribute("objBook", objBook);
 		model.addAttribute("listComment", listComment);
 		model.addAttribute("numberCmt", listComment.size());
-		return "/admin/detailBook";
+		return "admin/detailBook";
 	}
 
 	@RequestMapping(value = "/myBook", method = RequestMethod.GET)
@@ -143,9 +143,9 @@ public class IndexController {
 			int evalPageSize = pageSize.orElse(define.getInitialPageSize());
 			model.addAttribute(selectedPageSize, evalPageSize);
 			model.addAttribute(pageSizes, define.getPageSize());
-			return "/admin/myBook";
+			return "admin/myBook";
 		}else {
-			return "/admin/login";
+			return "admin/login";
 		}
 		
 	}
