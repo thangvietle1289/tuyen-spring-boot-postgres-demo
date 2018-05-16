@@ -78,7 +78,7 @@ public class IndexController {
 		} else {
 			HttpSession session = request.getSession(false);
 			session.invalidate();
-			return "redirect:/show-login?msg=1";
+			return "redirect:show-login?msg=1";
 		}
 
 	}
